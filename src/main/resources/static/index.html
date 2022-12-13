@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="file" onchange="encodeImageFileAsURL(this)" />
+</body>
+<script>
+    function encodeImageFileAsURL(element) {
+        const file = element.files[0];
+        const reader = new FileReader();
+        reader.onloadend = function() {
+            const base64Image = reader.result;
+            console.log('RESULT', base64Image);
+
+            const param = {
+                base64Image: base64Image
+            }
+
+            fetch("/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(param),
+            }).then(r => {console.log(r)});
+        }
+        reader.readAsDataURL(file);
+    }
+</script>
+</html>
