@@ -13,8 +13,8 @@ public class ImageService {
 
 
     /**
-     * Base64 Image url 형식 데이터를 파일로 변환하는 예제코드
-    */
+     * 1.Base64 Image url 형식 데이터를 파일로 변환하는 예제코드
+     */
     public String convertText(String base64Image) throws IOException {
         if (StringUtils.isEmpty(base64Image)) {
             return base64Image;
@@ -40,20 +40,8 @@ public class ImageService {
         return path;
     }
 
-
     /**
-     * Json 데이터 내에 존재하는 이미지를 추출하여 파일로 변환하는 예제코드
-     * 테스트 코드로 실행
+     * 2.Json 데이터 내에 존재하는 이미지를 추출하여 파일로 변환하는 예제코드는 ImageServiceTest 참조
      */
-    public String convertJson(String jsonText) {
-        if (StringUtils.isEmpty(jsonText)) {
-            return jsonText;
-        }
-
-
-
-        return "";
-    }
-
 
 }
